@@ -20,18 +20,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextContrastCheck" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.15">
+        app:layout_constraintVertical_bias="0.0">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -78,7 +80,7 @@
                         android:textColor="@color/textColor"
                         android:textSize="15sp"
                         android:textStyle="bold|normal"
-                        tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck,VisualLintButtonSize" />
+                        tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck,VisualLintButtonSize,TextContrastCheck" />
 
                     <Button
                         android:id="@+id/btnSignupLayout"
@@ -99,7 +101,7 @@
                         android:textColor="#EF6C00"
                         android:textSize="15sp"
                         android:textStyle="bold|normal"
-                        tools:ignore="TouchTargetSizeCheck,VisualLintButtonSize" />
+                        tools:ignore="TouchTargetSizeCheck,VisualLintButtonSize,DuplicateSpeakableTextCheck" />
 
                 </LinearLayout>
 
@@ -165,7 +167,7 @@
                             android:textColor="@color/black"
                             android:textSize="13sp"
                             android:textStyle="normal"
-                            tools:ignore="VisualLintTextFieldSize" />
+                            tools:ignore="VisualLintTextFieldSize,DuplicateSpeakableTextCheck" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -220,7 +222,8 @@
                             android:text="@string/password"
                             android:textAlignment="viewEnd"
                             android:textColor="@color/textOrange"
-                            android:textStyle="normal" />
+                            android:textStyle="normal"
+                            tools:ignore="TextContrastCheck" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -228,6 +231,7 @@
                     android:id="@+id/signUpLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="50dp"
                     android:background="@color/white"
                     android:gravity="center"
                     android:orientation="vertical"
@@ -258,7 +262,8 @@
                             android:inputType="textEmailAddress"
                             android:textColor="@color/black"
                             android:textSize="13sp"
-                            android:textStyle="normal" />
+                            android:textStyle="normal"
+                            tools:ignore="TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -283,7 +288,8 @@
                             android:inputType="textPersonName"
                             android:textColor="@color/black"
                             android:textSize="13sp"
-                            android:textStyle="normal" />
+                            android:textStyle="normal"
+                            tools:ignore="TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -308,7 +314,8 @@
                             android:inputType="textPassword"
                             android:textColor="@color/black"
                             android:textSize="13sp"
-                            android:textStyle="normal" />
+                            android:textStyle="normal"
+                            tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -317,14 +324,25 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:layout_marginStart="5dp"
                         android:layout_marginTop="20dp"
+                        android:layout_marginEnd="5dp"
                         android:elevation="15dp"
                         android:gravity="center"
                         android:text="@string/sign_up"
+                        android:textAllCaps="false"
                         android:textColor="@color/white"
                         android:textSize="17sp"
                         app:backgroundTint="@color/textOrange"
-                        app:shapeAppearanceOverlay="@style/ButtonStyle" />
+                        app:shapeAppearanceOverlay="@style/ButtonStyle"
+                        tools:ignore="TextContrastCheck,VisualLintButtonSize" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:text="@string/login_your_details" />
+
                 </LinearLayout>
 
             </LinearLayout>
