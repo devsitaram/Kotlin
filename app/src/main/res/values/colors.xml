@@ -7,4 +7,16 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    // new colors
+    <color name="textColor">#ECE5EC</color>
+    <color name="redColor">#F72314</color>
+    <color name="tansparentColor">#00CCC5C5</color>
+    <color name="nullColor">#00FFFFFF</color>
+
+    <color name="active">#E83A75</color>
+    <color name="inactive">#7E7C7C</color>
+
+    <color name="textOrange">#EC981C</color>
+    <color name="btnTextPink">#E6A256FF</color>
 </resources>
