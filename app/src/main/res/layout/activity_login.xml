@@ -83,7 +83,7 @@
                         tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck,VisualLintButtonSize,TextContrastCheck" />
 
                     <Button
-                        android:id="@+id/btnSignupLayout"
+                        android:id="@+id/btnRegisterLayout"
                         style="?android:attr/buttonBarButtonStyle"
                         android:layout_width="0dp"
                         android:layout_height="40dp"
@@ -330,7 +330,6 @@
                         android:elevation="15dp"
                         android:gravity="center"
                         android:text="@string/sign_up"
-                        android:textAllCaps="false"
                         android:textColor="@color/white"
                         android:textSize="17sp"
                         app:backgroundTint="@color/textOrange"
