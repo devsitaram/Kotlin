@@ -9,14 +9,14 @@ class UserEntity {
 
     // initialize the variable
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "user_id")
+    @ColumnInfo(name = "userid")
     var id: Int
 
     @ColumnInfo(name = "user_email")
     var userEmail: String
 
     @ColumnInfo(name = "user_name")
-    var nameName: String
+    var nameName: String? = null
 
     @ColumnInfo(name = "user_password")
     var userPassword: String
