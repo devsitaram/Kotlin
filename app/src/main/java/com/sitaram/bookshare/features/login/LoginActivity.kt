@@ -98,12 +98,12 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
     // signup layout visibility
     @SuppressLint("UseCompatLoadingForDrawables")
     fun signUpFieldsVisible() {
-        btnShowRegisterPage!!.background = resources.getDrawable(R.drawable.switch_tricks, null)
-        btnShowRegisterPage!!.setTextColor(resources.getColor(R.color.textColor, null))
-        btnShowLogInPage!!.background = null
-        logInLayout!!.visibility = View.GONE
-        signUpLayout!!.visibility = View.VISIBLE
-        btnShowLogInPage!!.setTextColor(resources.getColor(R.color.textOrange, null))
+        btnShowRegisterPage?.background = resources.getDrawable(R.drawable.switch_tricks, null)
+        btnShowRegisterPage?.setTextColor(resources.getColor(R.color.textColor, null))
+        btnShowLogInPage?.background = null
+        logInLayout?.visibility = View.GONE
+        signUpLayout?.visibility = View.VISIBLE
+        btnShowLogInPage?.setTextColor(resources.getColor(R.color.textOrange, null))
     }
 
     // show the valid/success toast message
@@ -133,20 +133,20 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
         // get text fields text
         val emailPattern = Regex("[a-zA-Z\\d._-]+@[a-z]+.+[a-z]+")
         // check the email pattern
-        if (!email.matches(emailPattern)) {
+        return if (!email.matches(emailPattern)) {
             editSignUpEmail?.error = "Invalid email address"
-            return false
+            false
         } else {
             editSignUpEmail?.error = null
-            return true
+            true
         }
     }
 
     override fun usernameValidation(name: String): Boolean {
         // get text fields text
-        val emailPattern = Regex("[a-zA-z]+\\s+[a-zA-z]+")
+        val usernamePattern = Regex("[a-zA-z]+\\s+[a-zA-z]+")
         // check the username pattern
-        return if (!name.matches(emailPattern)) {
+        return if (!name.matches(usernamePattern)) {
             editSignUpEmail?.error = "Invalid username!"
             false
         } else {
@@ -157,9 +157,9 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
 
     override fun passwordValidation(password: String): Boolean {
         // get text fields text
-        val emailPattern = Regex("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@\$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$")
+        val passwordPattern = Regex("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@\$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$")
         // check the password pattern
-        return if (!password.matches(emailPattern)) {
+        return if (!password.matches(passwordPattern)) {
             editSignUpEmail?.error = "Invalid Password!"
             false
         } else {

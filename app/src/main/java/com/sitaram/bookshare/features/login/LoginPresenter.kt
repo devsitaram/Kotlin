@@ -40,13 +40,18 @@ class LoginPresenter : LoginContract.Presenter {
         if (email.isEmpty() || username.isEmpty() || password.isEmpty()) {
             view?.loginErrorMessage("The fields is empty!")
         } else {
-            registerDetails(email,username,password)
+            val isEmail = view?.emailValidation(email)
+            val isUsername = view?.emailValidation(username)
+            val isPassword = view?.emailValidation(password)
+            if (isEmail == true || isUsername == true || isPassword == true) {
+                registerDetails(email, username, password)
+            }
         }
     }
 
     private fun registerDetails(email: String, username: String, password: String) {
         var isRegisterSuccess: Boolean? = loginModel.userRegister(email, username, password)
-        if (isRegisterSuccess ==  true) {
+        if (isRegisterSuccess == true) {
             view?.navigateToLoginPage()
         } else {
             view?.loginErrorMessage("Please enter the valid details!")
