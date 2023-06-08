@@ -9,6 +9,7 @@ import io.reactivex.rxjava3.core.Completable
 @SuppressWarnings("AndroidUnresolvedRoomSqlReference")
 @Dao
 interface UserDao {
+
     // insert the user data
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertUser(userList: List<UserEntity?>?): Completable?
