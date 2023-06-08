@@ -1,15 +1,14 @@
 package com.sitaram.bookshare.features.login
 
-@Suppress("UNREACHABLE_CODE")
-class LoginModel : LoginContract.Model{
+class LoginModel : LoginContract.Model {
+
+    // implement the userLogin method
     override fun userLogin(username: String, password: String): Boolean {
-        TODO("Not yet implemented")
         return true
     }
 
-    override fun register(email: String, username: String, password: String): Boolean {
-        TODO("Not yet implemented")
+    // implement the userRegister method
+    override fun userRegister(email: String, username: String, password: String): Boolean {
         return true
     }
-
 }

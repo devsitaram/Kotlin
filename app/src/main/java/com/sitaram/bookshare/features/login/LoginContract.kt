@@ -6,7 +6,10 @@ interface LoginContract {
         fun loginSuccessMessage(success: String)
         fun loginErrorMessage(error: String)
         fun navigateToHome()
-        fun loginButtonClick(username: String, password: String)
+        fun navigateToLoginPage()
+        fun emailValidation(email: String): Boolean
+        fun usernameValidation(name: String): Boolean
+        fun passwordValidation(password: String): Boolean
     }
 
     // interface Presenter
@@ -18,6 +21,6 @@ interface LoginContract {
     // interface Model
     interface Model {
         fun userLogin(username: String, password: String): Boolean
-        fun register(email: String, username: String, password: String): Boolean
+        fun userRegister(email: String, username: String, password: String): Boolean
     }
 }

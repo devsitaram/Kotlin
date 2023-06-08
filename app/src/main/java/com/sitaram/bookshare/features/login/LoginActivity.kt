@@ -46,7 +46,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
 
 //        // button initialization
         val btnLogin = findViewById<Button>(R.id.btnLogIn) // login botton
-//        val btnSignUp = findViewById<Button>(R.id.btnSignUp) // sign up botton
+        val btnSignUp = findViewById<Button>(R.id.btnSignUp) // sign up botton
 //        val btnCheckBok = findViewById<Button>(R.id.btnCheckBok)
 
         // button initialize
@@ -64,17 +64,26 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
         btnLogin.setOnClickListener {
             val username = editLoginUsername?.text.toString().trim()
             val password = editLoginPassword?.text.toString().trim()
-            // toast message
-            loginButtonClick(username, password)
-            Toast.makeText(this, "Hello", Toast.LENGTH_SHORT).show()
+            loginButtonClick(username, password) // call the loginButtonClick methods
+        }
+
+        btnSignUp.setOnClickListener {
+            val email = editSignUpEmail?.text.toString().trim()
+            val username = editSignUpUsername?.text.toString().trim()
+            val password = editSignUpPassword?.text.toString().trim()
+            // call the loginButtonClick methods
+            registerButtonClick(email, username, password)
         }
     }
 
     // loginButtonClick which is call the loginPresenter class's method
-    override fun loginButtonClick(username: String, password: String) {
+    private fun loginButtonClick(username: String, password: String) {
         loginPresenter?.loginButtonClick(username, password)
     }
 
+    private fun registerButtonClick(email: String, username: String, password: String){
+        loginPresenter?.registerButtonClick(email,username, password)
+    }
     // login layout visibility
     @SuppressLint("UseCompatLoadingForDrawables")
     fun loginFieldsVisible() {
@@ -108,10 +117,56 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
         Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
     }
 
+    override fun navigateToLoginPage() {
+        loginFieldsVisible()
+    }
+
     // navigate from login activity to main activity
     override fun navigateToHome() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish()
     }
+
+    override fun emailValidation(email: String): Boolean {
+
+        // get text fields text
+        val emailPattern = Regex("[a-zA-Z\\d._-]+@[a-z]+.+[a-z]+")
+        // check the email pattern
+        if (!email.matches(emailPattern)) {
+            editSignUpEmail?.error = "Invalid email address"
+            return false
+        } else {
+            editSignUpEmail?.error = null
+            return true
+        }
+    }
+
+    override fun usernameValidation(name: String): Boolean {
+        // get text fields text
+        val emailPattern = Regex("[a-zA-z]+\\s+[a-zA-z]+")
+        // check the username pattern
+        return if (!name.matches(emailPattern)) {
+            editSignUpEmail?.error = "Invalid username!"
+            false
+        } else {
+            editSignUpEmail?.error = null
+            true
+        }
+    }
+
+    override fun passwordValidation(password: String): Boolean {
+        // get text fields text
+        val emailPattern = Regex("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@\$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$")
+        // check the password pattern
+        return if (!password.matches(emailPattern)) {
+            editSignUpEmail?.error = "Invalid Password!"
+            false
+        } else {
+            editSignUpEmail?.error = null
+            true
+        }
+    }
+
+
 }
